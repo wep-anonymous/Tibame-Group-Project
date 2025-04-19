@@ -1,0 +1,132 @@
+// 塊狀檢視樣式
+.grid-view {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
+    // img
+    .file-img {
+        width: 200px;
+        height: 150px;
+        background-color: $subGray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            height: 100%;
+        }
+    }
+
+    // info
+    .file-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+        gap: 5px;
+        background-color: $subWhite;
+        .file-name{
+            @include Aleo-AG(14px,$baseBlue);
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap; /* 防止文字換行 */
+            text-overflow: ellipsis; /* 超出部分顯示為 ... */
+        }
+        .file-time {
+            @include FanwoodText-Normal(12px,$baseBlue);
+        }
+    }
+}
+// 條列式檢視樣式
+.list-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: $subDark-gray solid 1px;
+    
+    // img 
+    .file-img {
+        width: 50px;
+        height: 50px;
+        background-color: $subGray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        img{
+            height: 100%;
+        }
+    }
+
+    // info
+    .file-name {
+        flex: 1;
+        text-align: start;
+        padding-left: 10px;
+        @include Aleo-AG(14px,$baseBlue);
+        overflow: hidden;
+        white-space: nowrap; /* 防止文字換行 */
+        text-overflow: ellipsis; /* 超出部分顯示為 ... */
+    }
+    .file-time {
+        width: 200px;
+        text-align: right;
+        padding-right: 10px;
+        @include FanwoodText-Normal(16px,$baseBlue);
+    }
+}
+// 作品檢視樣式
+.draft-view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: $subDark-gray solid 1px;
+    
+    // img 
+    .file-img {
+        width: 50px;
+        height: 50px;
+        background-color: $subGray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        img{
+            height: 100%;
+        }
+    }
+
+    // info
+    .file-name {
+        flex: 1;
+        text-align: start;
+        padding-left: 10px;
+        @include Aleo-AG(14px,$baseBlue);
+        overflow: hidden;
+        white-space: nowrap; /* 防止文字換行 */
+        text-overflow: ellipsis; /* 超出部分顯示為 ... */
+    }
+    .file-time {
+        width: 200px;
+        display: flex;
+        justify-content: end;
+        @include FanwoodText-Normal(16px,$baseBlue);
+    }
+    .more-button{
+        width: 150px;
+        display: flex;
+        justify-content: end;
+        .viewIcon{
+            @include view("dark",16px);
+        }
+        p{
+            @include Aleo-AG(14px,$baseBlue);
+        }
+    }
+
+}

@@ -1,0 +1,409 @@
+.Create {
+  width: 100%;
+  height: calc(100vh - 100px);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  // 超出範圍隱藏
+  overflow: auto;
+  scrollbar-width: none;
+  // 定位
+  .Function {
+    position: sticky;
+    top: calc(80px + 10px);
+    left: 0;
+    top: 0;
+    z-index: 3;
+  }
+  .PageView {
+    position: sticky;
+    top: calc(80px + 10px);
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .main-content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    flex: 1;
+    top: 0;
+    z-index: 1;
+  }
+
+  //====================================
+  // CreateCanvas
+  //====================================
+  .CreateCanvas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .FunctionBar {
+      position: fixed;
+      top: calc(80px + 30px);
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      max-width: 20vw;
+      width: 100%;
+      background-color: $baseBlue;
+      border-radius: 100px;
+      .Zoom{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex: 1;
+        color: $subWhite;
+        @include Aleo-AG(16px,$subWhite);
+        .btn{
+          width: 30px;
+          text-align: center;
+          @include Aleo-AG(24px,$subWhite);
+          cursor: pointer;
+        }
+      }
+      .stepGroup {
+        width: 60px;
+        display: flex;
+        justify-content: space-between;
+        .step {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $subWhite;
+          border-radius: 20px;
+        }
+        .next {
+          width: 25px;
+          height: 25px;
+          background-image: url(/src/Assets/img/icon/nextStep.png);
+          background-size: cover;
+          background-position: center center;
+        }
+        .last {
+          width: 25px;
+          height: 25px;
+          background-image: url(/src/Assets/img/icon/lastStep.png);
+          background-size: cover;
+          background-position: center center;
+        }
+      }
+    }
+    .canvasGroup{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+        padding-bottom: 30px;
+      .canvas {
+        width: 680px;
+        height: 380px;
+        background-color: $subWhite;
+        border: $subGray solid 1px;
+        position: relative;
+      }
+    }
+  }
+  // =========================
+  // CreateMenu
+  // =========================
+  // -------------------------
+  // 共用設定
+  // -------------------------
+  .CreateMenu {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: calc(100vh - 100px);
+    background-color: $subWhite;
+    transition: width 0.3s ease;
+    // 超出範圍隱藏
+    overflow: auto;
+    scrollbar-width: none;
+    .Toggle {
+      width: 25px;
+      height: 25px;
+      background-image: url("/src/Assets/img/icon/open.png");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  // -------------------------
+  // Function
+  // -------------------------
+  .Function {
+    border-right: solid $baseBlue;
+    .stickyBar {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      background-color: $subWhite;
+      border-bottom: $baseBlue solid;
+      z-index: 2;
+    }
+    .FunctionBar {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bookInfoBox {
+      padding: 10px;
+      margin-bottom: 30px;
+      .title {
+        @include Aleo-Ag(36px,$baseOrange);
+        overflow: hidden;
+        text-overflow: ellipsis; /* 超出部分顯示為 ... */
+      }
+      .subTitle {
+        margin-top: 10px;
+        @include FanwoodText-AG(20px,$subDark-gray);
+      }
+    }
+    .CreateMenuContent {
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    // { ContentBox 共用設定 }
+      .ContentBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+      .ModelBox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .model {
+        // 
+        width: 104px;
+        height: 57px;
+        border-radius: 5px;
+        border: $subGray solid 1.5px;
+        background-color: $subWhite;
+        // background-color: $subGray;
+        overflow: hidden;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        .modelsPreview {
+          width: 680px;
+          height: 380px;
+        }
+        img {
+          width: 20px;
+          height: auto;
+        }
+      }
+    // { AccordionModel }
+      .ContentBox.Model {
+        button {
+          all: unset;
+        }
+        .addAll {
+          .btnKey-M {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+          }
+        }
+      }
+    // { AccordionText }
+      .AccordionText {
+        .TextStyle {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .secondRow {
+          display: flex;
+          gap: 10px;
+          .fontSize {
+            width: 80px;
+          }
+          .fontWidth {
+            flex: 1;
+          }
+        }
+        .thirdRow {
+          display: flex;
+          justify-content: space-between;
+          .format {
+            width: 30px;
+            height: 30px;
+            border: $subGray solid 1px;
+            border-radius: 5px;
+            img {
+              width: 100%;
+              height: auto;
+              opacity: 50%;
+            }
+            &:focus,&:hover{
+              img{
+              opacity: 100%;
+
+              }
+            }
+          }
+        }
+        .fourRow{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+          .vc-colorpicker{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // -------------------------
+  // PageView
+  // -------------------------
+  .PageView {
+    border-left: solid $baseBlue;
+    .topBar {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+    .MenuContent {
+      width: 100%;
+      flex: 1;
+      // 超出範圍隱藏
+      overflow: auto;
+      scrollbar-width: none;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 10px;
+      gap: 10px;
+      @include FanwoodText-Normal(20px,$baseBlue);
+    }
+    .modelView {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .modelContent {
+        width: 680px * 0.25;
+        height: 380px * 0.25;
+        border: $subGray solid;
+        background-color: $subWhite;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        overflow: hidden;
+
+        .canvasPreview {
+          width: 680px;
+          height: 380px;
+          .remove-btn {
+            position: absolute;
+            top: 24px;
+            right: 55px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            background-color: $baseBlue;
+            color: white;
+            z-index: 30;
+          }
+          .remove-btn:hover {
+            background-color: $baseOrange;
+          }
+        }
+      }
+    }
+    .next-step-btn{
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      align-items: center;
+      .btnKey-M{
+        width: 160px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .save-btn-group{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 10px;
+        .SaveBtn{
+          position: absolute;
+          top: 0;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &:hover{
+          .SaveDraftBtn{
+            padding-bottom: 40px;
+          }
+          .SaveBtn{
+            top: 40px;
+            transition: opacity 0.8s ease, transform 0.8s ease; /* 添加平滑過渡 */
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+  }
+
+  // =========================
+  // .close 後的樣式
+  // =========================
+  .Function.close,
+  .PageView.close {
+    width: 50px;
+    .Toggle {
+      background-image: url("/src/Assets/img/icon/close.png");
+    }
+    .CheckBox {
+      display: none;
+    }
+    .bookInfoBox {
+      display: none;
+    }
+    .CreateMenuContent, .MenuContent {
+      display: none;
+    }
+    .next-step-btn{
+      display: none;
+    }
+  }
+}
+

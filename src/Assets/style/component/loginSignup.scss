@@ -1,0 +1,337 @@
+@import "../main.scss";
+
+body,
+input,
+label,
+p,
+h2,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+/* 光箱外底色 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($baseBlue, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3500;
+  // background-color: yellow;
+}
+
+// 光箱大小邊框
+.modal-content {
+  max-width: 32vw;
+  // 宏育修改-因為加了這段，所以底下資玲修改的地方可以維持原本，不然我的會被影響到xd
+  min-width: 450px;
+  // =======
+  width: 100%;
+  height: 70vh;
+  min-height: 450px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  .bgc {
+    // 資玲-修改這段因為和我的命名一樣會被我的其他元件影響到
+    // max-width: 35vw;
+    // width: 100%;
+    // height: 70vh;
+    // 這邊是原本寫的
+    width: 100%;
+    height: 100%;
+    // ======
+    background-color: $subWhite;
+    // 邊框
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: solid transparent;
+    }
+    &::before {
+      border-width: 5px; /* 外框寬度 */
+      border-color: $baseBlue; /* 外框顏色 */
+      z-index: 1;
+    }
+    &::after {
+      border-width: 2px; /* 內框寬度 */
+      border-color: $baseBlue; /* 內框顏色 */
+      top: 8px; /* 外框寬度 + padding */
+      left: 8px; /* 外框寬度 + padding */
+      right: 8px; /* 外框寬度 + padding */
+      bottom: 8px; /* 外框寬度 + padding */
+      z-index: 2;
+    }
+  }
+}
+
+.modal-content.signUp {
+  height: 80vh;
+  min-height: 500px;
+
+  .lightbox-content {
+    height: 80vh;
+    min-height: 500px;
+    // min-width: 450px;
+    // width: 100%;
+
+    // top: 50%;
+  }
+}
+
+/* 光箱內容 */
+.lightbox-content {
+  // width: 40%;
+  // max-width: 30vw;
+  // min-width: 700px;
+  width: 350px;
+  // width: 100%;
+  height: 70vh;
+  min-height: 450px;
+
+  position: fixed;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 確保光箱正中央 */
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 表單樣式 */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 表單項目 */
+label {
+  margin-top: 3px;
+}
+
+input {
+  padding: 8px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dark-view {
+  width: 16px;
+  height: 16px;
+  // background-color: yellow;
+  cursor: pointer;
+  background-image: url(../../Assets/img/icon/dark-view.png);
+  background-size: contain; /* 改用 contain 確保圖片完整顯示 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dark-view.closed {
+  background-image: url(../../Assets/img/icon/gray-view.png);
+  /* width: 80%; */
+  /* height: 80%; */
+  background-size: contain; /* 改用 contain 確保圖片完整顯示 */
+  background-position: center;
+  background-repeat: no-repeat;
+  // background-color: yellow;
+}
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.logInToggleVisibility {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.signUpToggleVisibility {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.signUpConfimToggleVisibility {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* 提交按鈕 */
+button[type="submit"] {
+  padding: 10px;
+  cursor: pointer;
+  width: 60px;
+  align-items: center;
+  text-align: center;
+}
+
+button[type="submit"]:hover {
+  background-color: $subBlue;
+}
+div.btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  box-shadow: 0px 0px 0px 0px rgba(21, 50, 67, 0.6);
+}
+
+// 錯誤提示
+.error {
+  color: red;
+}
+
+// 外部登入
+.outsideContect {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  // opacity: 40%;
+}
+
+.outsideContect a {
+  display: inline-block; /* 保持 <a> 標籤的自然寬度 */
+  text-align: center; /* 確保 <a> 標籤的內容居中 */
+  .fb {
+    opacity: 40%;
+  }
+  .google {
+    cursor: pointer;
+  }
+}
+.outsideContect img {
+  width: 50%; /* 控制圖片的寬度 */
+  display: block; /* 確保圖片元素為塊級元素，防止其周圍有多餘空白 */
+  margin: 0 auto; /* 保證圖片在 <a> 中居中 */
+}
+
+// 分隔方式
+div.or {
+  padding: 8px;
+  display: flex; /* 使每個 <a> 具有 flex 屬性 */
+  justify-content: center; /* 讓圖片居中 */
+
+  ::before {
+    content: "";
+    display: inline-block;
+    width: 8vw;
+    height: 2px;
+    background-color: $baseBlue;
+    vertical-align: middle;
+    margin-right: 3px;
+  }
+  ::after {
+    content: "";
+    display: inline-block;
+    width: 8vw;
+    height: 2px;
+    background-color: $baseBlue;
+    vertical-align: middle;
+    margin-left: 3px;
+  }
+}
+
+p.gotoSingup,
+p.gotoLogin {
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+
+p.gotoSingup {
+  // margin-left: 45px;
+}
+
+p.gotoLogin {
+  padding-top: 10px;
+}
+
+.signup {
+  color: rgb(22, 101, 185);
+  cursor: pointer;
+}
+
+.lightbox-content > h1 {
+  font-family: Aleo;
+  color: $baseBlue;
+  margin-top: 35px;
+}
+
+p,
+label,
+input {
+  font-family: Fanwood Text;
+}
+
+.error-message {
+  height: 14px; /* 固定高度，避免擠壓 */
+  line-height: 14px; /* 垂直置中 */
+  color: red;
+  font-size: 14px;
+  visibility: hidden; /* 預設隱藏 */
+  opacity: 0; /* 預設透明 */
+  transition: opacity 0.3s ease; /* 添加過渡效果 */
+}
+
+// ===衝突點紀錄===
+.error-message.visible {
+  visibility: visible; /* 顯示錯誤訊息 */
+  opacity: 1; /* 完全不透明 */
+}
+
+// 登入註冊成功
+.modal-content.successPrompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // max-width: 37vh;
+  min-height: 200px;
+  height: 20vh;
+
+  .lightbox-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    min-height: 200px;
+    max-width: 35vw;
+    min-width: 450px;
+    top: 50.5%;
+  }
+}
+
+.successPrompt h2 {
+  font-family: Aleo;
+  color: $baseBlue;
+  font-size: 2.2rem;
+  margin: 7px 0;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}

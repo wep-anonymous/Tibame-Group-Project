@@ -1,0 +1,44 @@
+{
+  "name": "project-phantasia",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/server.js"
+  },
+  "dependencies": {
+    "@three-ts/orbit-controls": "^1.4.7",
+    "@tweenjs/tween.js": "^23.1.1",
+    "animate.css": "^3.7.2",
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ecpay_aio_nodejs": "^1.2.2",
+    "express": "^4.21.2",
+    "firebase": "^11.3.1",
+    "firebase-admin": "^13.1.0",
+    "jquery": "^3.7.1",
+    "jquery.ripples": "^0.6.3",
+    "lettering.js": "^0.8.2",
+    "parallax-js": "^3.1.0",
+    "pinia": "^2.1.4",
+    "textillate": "^0.4.1",
+    "three": "^0.172.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vueuse/core": "^13.0.0",
+    "capture-html": "^0.0.2",
+    "gsap": "^3.12.7",
+    "html2canvas": "^1.4.1",
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.1",
+    "nanoid": "^5.1.5",
+    "vite": "^4.4.6",
+    "vue3-colorpicker": "^2.3.0"
+  }
+}

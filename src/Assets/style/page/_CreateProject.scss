@@ -1,0 +1,202 @@
+// =======================
+// 共用元件設定
+// =======================
+.topBar{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    gap: 30px;
+    padding-top: 30px;
+    width: 100%;
+    button{
+        all: unset;
+    }
+}
+.searchFunction{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    input{
+        all: initial;
+        width: 100%;
+        &::placeholder {
+            @include FanwoodText-Normal(20px, rgb(21, 50, 67,50%))
+        }
+    }
+    .fileSearch{
+        display: flex;
+        flex: 1;
+        padding: 5px;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: $baseBlue solid 1px;
+    }
+}
+
+.file-manager {
+    width: 100%;
+    padding-top: 50px;
+    .titleBar{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        h3{
+            @include Aleo-AG (16px,$baseOrange);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            .arrow {
+                @include arrow("light",12px);
+                transform: rotate(90deg);
+                &.asc{
+                    transform: rotate(270deg);
+                }
+            }
+        }
+        .file-name {
+            flex: 1;
+            text-align: start;
+        }
+        .file-time {
+            width: 200px;
+            display: flex;
+            justify-content: end;
+        }
+        .more-button{
+            width: 150px;
+            display: flex;
+            justify-content: end;
+        }
+    }
+}
+// =======================
+// CreateProject
+// =======================
+.CreateProject{
+    width: 100%;
+    // { RecentFile }
+    // ------------------------
+    .recent-file {
+        margin-top: 50px;
+        padding-bottom: 50px;
+        border-bottom: $subGray solid 1px;
+    }
+    .modeFunction{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // title
+        .title{
+            @include Aleo-AG (16px,$baseOrange);
+        } 
+        // 按鈕樣式
+        .view-mode-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        
+            // 換檢視方式
+            button {
+                all: initial;
+                padding: 10px 0;
+                cursor: pointer;
+                opacity: 30%;
+            }
+            button.active {
+                opacity: 100%;
+            }
+            .button-icon {
+                width: 25px;
+                height: auto;
+            }
+        } 
+    }
+
+    .Recent-file-list{
+        display: flex;
+        flex-wrap: wrap;
+        &.grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  // Grid 屬性，定義網格容器中每一列的寬度
+            gap: min(20px, 5%); /* 間距為 20px 或 5%，取較小值 */
+        }
+    }
+    .file-list {
+        display: flex;
+        flex-wrap: wrap;
+        // 塊狀
+        &.grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  // Grid 屬性，定義網格容器中每一列的寬度
+            gap: min(20px, 5%); /* 間距為 20px 或 5%，取較小值 */
+        }
+        // 條列
+        &.list {
+            display: flex;
+            justify-content: space-between;
+            .file-item {
+                width: 100%;
+            }
+        }
+        
+    }
+    &.link {
+        display: flex;
+        flex-direction: column;
+        .file-item {
+            width: 100%;
+        }
+    }
+}
+
+
+// =======================
+// Draft
+// =======================
+.Draft{
+    .btnTab{
+        @include btnTab($baseBlue, $subWhite, 20px);
+        .text {
+          background-color: $baseBlue;
+          color: $subWhite;
+        }
+    }
+   .tabGroup{
+        display: flex;
+        gap: 30px;
+        align-items: baseline;
+   }
+   .notion{
+        width: 100%;
+        margin-top: 30px;
+        padding: 20px;
+        background-color: $subGray;
+        color: $baseBlue;
+        h3{
+            @include Aleo-Ag(20px,$baseBlue);
+        }
+        p{
+            padding-top:20px ;
+            @include FanwoodText-Normal(18px,$baseBlue);
+        }
+        .memberCenterLink{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            margin-top: 20px;
+            .arrowIcon{
+                @include arrow("dark",16px);
+            }
+        }
+   }
+
+}
+
+
+
+
+
