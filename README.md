@@ -1,29 +1,57 @@
-# Project_Phantasia
+**Project_Phantasia– Online Graphic Story Library for Children**
 
-This template should help get you started developing with Vue 3 in Vite.
+**Project Overview**
+Phantasia is an online reading platform designed specifically for children to enjoy graphic stories in an engaging and interactive way. It also serves as a publishing space for creators to upload, design, and share their own visual stories. The platform combines interactive UI, animation, and database features to provide both educational and creative experiences.
 
-## Recommended IDE Setup
+**Live Demo**: https://tibamef2e.com/tid201/g1/day
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+**Key Features**
+Interactive product pages with carousel and scroll bar functionality
 
-## Customize configuration
+Detailed book information pages with metadata and user reviews
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Immersive reading page with animated transitions and sliding navigation
 
-## Project Setup
+User review system with comment submission and real-time display
 
-```sh
-npm install
-```
+3D animated book display
 
-### Compile and Hot-Reload for Development
+Integrated backend for story and product management using Firebase
 
-```sh
-npm run dev
-```
+Creator input features for submitting stories and visual content
 
-### Compile and Minify for Production
+**My Responsibilities**
+I was primarily responsible for the front-end development of key product and user-facing features, including:
 
-```sh
-npm run build
-```
+Product listing page (carousel, scroll bar, data rendering)
+
+Book detail page design and implementation
+
+Reading interface structure and animated effects
+
+Product database logic and backend data integration
+
+Review system development and UI/UX flow
+
+3D book animation using Three.js and CSS3D
+
+**Technologies Used
+Frontend:**
+Vue.js, Vue Router, Pinia, SASS, CSS 3D, JavaScript, jQuery, GSAP, Parallax.js, jQueryRipples.js, Textillate, Three.js
+
+**Backend & Services:**
+Node.js, Express, Firebase (Firestore, Storage, Authentication), Axios, Ajax, Mitt
+
+**Project Highlights**
+Developed a responsive, animation-rich experience tailored for young readers
+
+Create a dynamic 3D book animation
+
+Used Firebase for real-time data management and authentication
+
+Applied modular design with Vue 3 Composition API and centralized state management using Pinia
+
+Built and connected custom UI components to backend services
+
+**Team & Context**
+This was a group project where I focused on the product-facing and interactive features. My role was to implement both the UI design and backend data logic for all book-related functionality.
